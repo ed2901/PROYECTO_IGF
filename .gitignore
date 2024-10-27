@@ -20,3 +20,9 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+# Ignorar directorios de dependencias
+node_modules/
+vendor/
+
+# Ignorar el archivo de configuración de entorno
+.env
