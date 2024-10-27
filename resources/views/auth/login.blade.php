@@ -10,11 +10,18 @@
         background-color: #f8f9fa;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Estilo para el logo */
+    .logo {
+        width: 100px;
+        height: auto;
+        margin-bottom: 1rem;
     }
 
     /* Estilo para el título */
     h2 {
-        text-align: center;
         margin-bottom: 1.5rem;
         font-size: 1.5rem;
         color: #343a40;
@@ -23,6 +30,7 @@
     /* Estilos para el grupo de formularios */
     .form-group {
         margin-bottom: 1.5rem;
+        text-align: left;
     }
 
     label {
@@ -83,6 +91,9 @@
 </style>
 
 <div class="container">
+    <!-- Logo -->
+    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo">
+
     <h2>Iniciar Sesión</h2>
     <form method="POST" action="{{ route('login') }}">
         @csrf
