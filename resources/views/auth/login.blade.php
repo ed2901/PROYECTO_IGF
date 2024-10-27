@@ -2,6 +2,7 @@
 
 @section('content')
 <style>
+    /* Estilos generales para el contenedor */
     .container {
         max-width: 400px;
         margin: auto;
@@ -11,6 +12,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
+    /* Estilo para el título */
     h2 {
         text-align: center;
         margin-bottom: 1.5rem;
@@ -18,6 +20,7 @@
         color: #343a40;
     }
 
+    /* Estilos para el grupo de formularios */
     .form-group {
         margin-bottom: 1.5rem;
     }
