@@ -26,3 +26,19 @@ vendor/
 
 # Ignorar el archivo de configuración de entorno
 .env
+
+
+# Dependencias de Node.js
+node_modules/
+
+# Dependencias de PHP
+vendor/
+
+# Archivos de entorno
+.env
+
+# Configuraciones de editor de código
+.vscode/
+
+# Otras configuraciones (por ejemplo, para archivos específicos de MacOS)
+.DS_Store
