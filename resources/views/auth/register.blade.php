@@ -110,10 +110,10 @@
         <h2>Registro</h2>
     </div>
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="/register">
         @csrf
         <div class="form-group">
-            <label for="name">{{ __('Name') }}</label>
+            <label for="name">{{ __('Nombre') }}</label>
             <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
             @error('name')
                 <div class="error">{{ $message }}</div>
@@ -121,7 +121,7 @@
         </div>
 
         <div class="form-group">
-            <label for="email">{{ __('Email Address') }}</label>
+            <label for="email">{{ __('Email') }}</label>
             <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
             @error('email')
                 <div class="error">{{ $message }}</div>
@@ -129,7 +129,7 @@
         </div>
 
         <div class="form-group">
-            <label for="password">{{ __('Password') }}</label>
+            <label for="password">{{ __('Contraseña') }}</label>
             <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
             @error('password')
                 <div class="error">{{ $message }}</div>
@@ -137,11 +137,31 @@
         </div>
 
         <div class="form-group">
-            <label for="password-confirm">{{ __('Confirm Password') }}</label>
+            <label for="password-confirm">{{ __('Confirmar Contraseña') }}</label>
             <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
         </div>
 
-        <button type="submit">{{ __('Register') }}</button>
+        <div class="form-group">
+    <label for="hospital">{{ __('Hospital') }}</label>
+    <select id="hospital" name="hospital" required>
+        <option value="">Seleccione un hospital</option>
+        @foreach($hospitales as $hospital)
+            <option value="{{ $hospital->id }}">{{ $hospital->nombre }}</option>
+        @endforeach
+    </select>
+</div>
+
+        <div class="form-group">
+            <label for="password-confirm">{{ __('Tipo de Usuario') }}</label>
+            <select id="roles" type="dropdown" name="roles" required >
+                 <option value="admin">Administrador</option>
+                 <option value="medico">Medico</option>
+                <option value="recepcionista">Recepcionista</option>
+            </select>
+        </div>
+        
+
+        <button type="submit">{{ __('Registrarse') }}</button>
     </form>
     <a href="{{ route('login') }}" class="reset-password-link">¿Ya tienes una cuenta? Inicia sesión</a>
 </div>

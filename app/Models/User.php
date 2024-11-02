@@ -21,7 +21,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol',
+        'hospital',
+
     ];
+
+    public function hospital()
+    {
+        return $this->belongsTo(Hospital::class, 'hospital');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -45,4 +53,5 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
 }

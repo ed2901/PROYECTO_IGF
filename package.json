@@ -6,6 +6,7 @@
         "dev": "vite"
     },
     "devDependencies": {
+        "@babel/preset-react": "^7.25.9",
         "@popperjs/core": "^2.11.6",
         "@vitejs/plugin-vue": "^4.5.0",
         "autoprefixer": "^10.4.20",
@@ -15,13 +16,16 @@
         "laravel-vite-plugin": "^1.0",
         "postcss": "^8.4.47",
         "sass": "^1.56.1",
-        "tailwindcss": "^3.4.13",
+        "tailwindcss": "^1.9.6",
         "vite": "^5.0",
         "vue": "^3.2.37"
     },
     "dependencies": {
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
+        "inertia": "^0.0.7",
+        "laravel": "^0.0.1",
+        "pages": "^0.0.16",
         "react": "^18.3.1",
         "react-dom": "^18.3.1"
     }

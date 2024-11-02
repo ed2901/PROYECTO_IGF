@@ -80,9 +80,10 @@
         <h1>Sistema de Triage Hospitalario</h1> <!-- Texto actualizado -->
         <p>Bienvenido al sistema de triage para hospitales públicos a nivel nacional.</p> <!-- Texto de bienvenida -->
 
+        
         <div class="auth-links">
             <a href="{{ route('login') }}" class="btn">Iniciar sesión</a>
-            <a href="{{ route('register') }}" class="btn">Registrarse</a>
+            <a href="/register" class="btn">Registrarse</a>
         </div>
     </div>
 
