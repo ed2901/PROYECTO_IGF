@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('nav-home')
+<a href="/registrarhospital" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Registro de Hospital</a>
+@endsection
 @section('content')
 <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
     <h2 class="text-2xl font-semibold text-center mb-6">Registrar un Hospital</h2>

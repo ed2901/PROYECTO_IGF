@@ -14,6 +14,13 @@ Route::get('/registrarhospital', function () {
 
 Route::post('/registrarhospital', [HospitalController::class, 'store']);
 
+//ver hospitales con accceso a tabla
+Route::get('/verhospitales', [HospitalController::class, 'verhospitales']);
+
+//editar hospitales
+Route::get('/hospital/{id}/edit', [HospitalController::class, 'edit'])->name('hospital.edit');
+Route::put('/hospital/{id}', [HospitalController::class, 'update'])->name('hospital.update');
+
 
 // Ruta para la página de inicio (welcome)
 Route::get('/', function () {
