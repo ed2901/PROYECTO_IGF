@@ -6,6 +6,20 @@ use Illuminate\Support\Facades\Auth;
 //controlador de hospitales
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PacienteRegistroInicialController;
+
+//registrar paciente
+Route::get('/registrarpaciente/regpaciente', function () {
+    return view('registrarpaciente.regpaciente');
+});
+Route::post('/registrarpaciente/regpaciente', [PacienteRegistroInicialController::class, 'store']);
+
+//ver pacientes en espera con accceso a tabla
+Route::get('/registrarpaciente/verpacientes', [PacienteRegistroInicialController::class, 'verpacientes']);
+
+//editar pacientes
+Route::get('/registrarpaciente/{id}/edit', [PacienteRegistroInicialController::class, 'edit'])->name('paciente.edit');
+Route::put('/registrarpaciente/{id}', [PacienteRegistroInicialController::class, 'update'])->name('paciente.update');
 
 
 Route::get('/registrarhospital', function () {

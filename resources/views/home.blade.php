@@ -100,8 +100,19 @@
                             <div class="bg-white border-4 border-red-500 p-4 rounded-lg shadow-md">
                                 <h3 class="font-bold text-gray-800">Registrar Paciente</h3>
                                 <p class="text-gray-600">Registra al los pacientes para realizar el triage</p>
-                                <a href="{{ url('/registrarhospital') }}" class="inline-block mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-green-600">
+                                <a href="{{ url('/registrarpaciente/regpaciente') }}" class="inline-block mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-green-600">
                                     Registrar
+                                </a>
+                                
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-1/3 p-2">
+                            <div class="bg-white border-4 border-green-500 p-4 rounded-lg shadow-md">
+                                <h3 class="font-bold text-gray-800">Ver Pacientes registrados</h3>
+                                <p class="text-gray-600">Ver y editar informacion de los pacientes registrados</p>
+                                <a href="{{ url('/registrarpaciente/verpacientes') }}" class="inline-block mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                                    Entrar
                                 </a>
                                 
                             </div>
