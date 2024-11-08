@@ -13,5 +13,14 @@ class Triage extends Model
         'codigo',
         'descripcion',
         'prioridad',
+        'hospital_id', // Asegúrate de incluir este campo
     ];
+
+    /**
+     * Relación "muchos a uno" con el modelo Hospital.
+     */
+    public function hospital()
+    {
+        return $this->belongsTo(Hospital::class, 'hospital_id');
+    }
 }

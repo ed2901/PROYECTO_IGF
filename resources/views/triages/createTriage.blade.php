@@ -8,28 +8,24 @@
 <div class="container mx-auto p-6">
     <h1 class="text-3xl font-bold mb-4 text-gray-800">Crear Nuevo Triage</h1>
 
-    <form action="{{ route('triages.store') }}" method="POST" class="bg-white shadow-md rounded-lg p-6">
+    <form action="{{ route('triages.store') }}" method="POST">
         @csrf
-
-        <div class="form-group mb-4">
-            <label for="codigo" class="block text-gray-700 font-medium mb-2">Código</label>
-            <input type="text" class="form-control border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:border-blue-500" id="codigo" name="codigo" required>
+        <div class="mb-4">
+            <label for="codigo" class="block text-gray-700">Código:</label>
+            <input type="text" id="codigo" name="codigo" class="w-full border border-gray-300 rounded p-2" required>
         </div>
 
-        <div class="form-group mb-4">
-            <label for="descripcion" class="block text-gray-700 font-medium mb-2">Descripción</label>
-            <input type="text" class="form-control border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:border-blue-500" id="descripcion" name="descripcion" required>
+        <div class="mb-4">
+            <label for="descripcion" class="block text-gray-700">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" class="w-full border border-gray-300 rounded p-2" required>
         </div>
 
-        <div class="form-group mb-4">
-            <label for="prioridad" class="block text-gray-700 font-medium mb-2">Prioridad</label>
-            <input type="number" class="form-control border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:border-blue-500" id="prioridad" name="prioridad" required>
+        <div class="mb-4">
+            <label for="prioridad" class="block text-gray-700">Prioridad:</label>
+            <input type="number" id="prioridad" name="prioridad" class="w-full border border-gray-300 rounded p-2" required>
         </div>
 
-        <div class="flex space-x-2">
-            <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-500 transition">Crear Triage</button>
-            <a href="{{ route('triages.index') }}" class="bg-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-200 transition">Cancelar</a>
-        </div>
+        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition">Crear Triage</button>
     </form>
 </div>
 @endsection

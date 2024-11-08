@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hospital extends Model
 {
-    //importante
+    // Especificar la tabla si el nombre no sigue la convención
     public $table = 'hospitales';
+
     use HasFactory;
 
     /**
-     * The attributes that are mass assignable.
+     * Los atributos que se pueden asignar masivamente.
      *
      * @var array
      */
@@ -22,4 +23,13 @@ class Hospital extends Model
         'descripcion',
         'logo',
     ];
+
+    /**
+     * Relación "uno a muchos" con el modelo Triage.
+     * Un hospital puede tener muchos triages.
+     */
+    public function triages()
+    {
+        return $this->hasMany(Triage::class, 'hospital_id');
+    }
 }

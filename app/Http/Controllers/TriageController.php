@@ -3,21 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Triage;
+use App\Models\Hospital;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TriageController extends Controller
 {
-    // Mostrar todos los triages
+    // Mostrar todos los triages del hospital del usuario autenticado
     public function index()
     {
-        $triages = Triage::all(); // Obtiene todos los triages
-        return view('triages.indexTriage', compact('triages')); // Retorna la vista con los triages
+        // Obtener el hospital del usuario autenticado
+        $hospitalId = Auth::user()->hospital_id;
+
+        // Obtener los triages asociados al hospital del usuario autenticado
+        $triages = Triage::where('hospital_id', $hospitalId)->get();
+
+        // Retorna la vista con los triages del hospital
+        return view('triages.indexTriage', compact('triages'));
     }
 
     // Mostrar el formulario para crear un nuevo triage
     public function create()
     {
-        return view('triages.createTriage'); // Retorna la vista del formulario de creación
+        // Obtener el hospital del usuario autenticado
+        $hospitalId = Auth::user()->hospital_id;
+
+        // Verificar si el hospital existe
+        $hospital = Hospital::findOrFail($hospitalId);
+
+        // Retorna la vista del formulario de creación con el hospital
+        return view('triages.createTriage', compact('hospital'));
     }
 
     // Almacenar un nuevo triage en la base de datos
@@ -30,8 +45,16 @@ class TriageController extends Controller
             'prioridad' => 'required|integer', // Prioridad requerida
         ]);
 
-        // Crear el triage con los datos validados
-        Triage::create($request->all());
+        // Obtener el hospital del usuario autenticado
+        $hospitalId = Auth::user()->hospital_id;
+
+        // Crear el triage con los datos validados y asignar el hospital_id
+        Triage::create([
+            'codigo' => $request->codigo,
+            'descripcion' => $request->descripcion,
+            'prioridad' => $request->prioridad,
+            'hospital_id' => $hospitalId, // Asignar el hospital del usuario
+        ]);
 
         // Redirigir a la lista de triages con un mensaje de éxito
         return redirect()->route('triages.index')->with('success', 'Triage creado exitosamente.');
@@ -40,7 +63,8 @@ class TriageController extends Controller
     // Mostrar el formulario para editar un triage existente
     public function edit(Triage $triage)
     {
-        return view('triages.editTriage', compact('triage')); // Retorna la vista de edición con el triage
+        // No hay restricción de roles o hospital para editar, cualquier usuario autenticado puede editar
+        return view('triages.editTriage', compact('triage'));
     }
 
     // Actualizar un triage existente en la base de datos
@@ -63,7 +87,10 @@ class TriageController extends Controller
     // Eliminar un triage de la base de datos
     public function destroy(Triage $triage)
     {
-        $triage->delete(); // Eliminar el triage
-        return redirect()->route('triages.index')->with('success', 'Triage eliminado exitosamente.'); // Redirigir con mensaje de éxito
+        // Eliminar el triage
+        $triage->delete();
+
+        // Redirigir a la lista de triages con un mensaje de éxito
+        return redirect()->route('triages.index')->with('success', 'Triage eliminado exitosamente.');
     }
 }
