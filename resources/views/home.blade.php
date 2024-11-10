@@ -95,10 +95,10 @@
                     </div>
 
                     <div class="w-full md:w-1/3 p-2">
-                        <div class="bg-white border-4 border-green-500 p-4 rounded-lg shadow-md">
+                        <div class="bg-white border-4 border-yellow-500 p-4 rounded-lg shadow-md">
                             <h3 class="font-bold text-gray-800">Ver Pacientes Registrados</h3>
                             <p class="text-gray-600">Ver y editar información de los pacientes registrados</p>
-                            <a href="{{ url('/registrarpaciente/verpacientes') }}" class="inline-block mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                            <a href="{{ url('/registrarpaciente/verpacientes') }}" class="inline-block mt-2 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-green-600">
                                 Entrar
                             </a>
                         </div>
@@ -119,16 +119,18 @@
 
                     <!-- Tarjeta para gestionar triages -->
                     <div class="w-full md:w-1/3 p-2">
-                        <div class="bg-white border-4 border-blue-500 p-4 rounded-lg shadow-md">
+                        <div class="bg-white border-4 border-purple-500 p-4 rounded-lg shadow-md">
                             <h3 class="font-bold text-gray-800">Gestionar Triage</h3>
                             <p class="text-gray-600">Consulta y gestiona los triages realizados</p>
-                            <a href="{{ url('/triages') }}" class="inline-block mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-green-600">
+                            <a href="{{ url('/triages') }}" class="inline-block mt-2 px-4 py-2 bg-purple-500 text-white rounded hover:bg-green-600">
                                 Entrar
                             </a>
                         </div>
                     </div>
 
                     <!-- Opciones comunes para todos los usuarios -->
+
+                     <!--
                     <div class="w-full md:w-1/3 p-2">
                         <div class="bg-white border-4 border-purple-500 p-4 rounded-lg shadow-md">
                             <h3 class="font-bold text-gray-800">Códigos de Triage</h3>
@@ -138,16 +140,19 @@
                             </a>
                         </div>
                     </div>
+                     -->
 
+                     
                     <div class="w-full md:w-1/3 p-2">
-                        <div class="bg-white border-4 border-blue-500 p-4 rounded-lg shadow-md">
+                        <div class="bg-white border-4 border-green-500 p-4 rounded-lg shadow-md">
                             <h3 class="font-bold text-gray-800">Monitoreo en Tiempo Real</h3>
                             <p class="text-gray-600">Entra a la interfaz de monitoreo en tiempo real de pacientes</p>
-                            <a href="{{ url('/configuracion') }}" class="inline-block mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                            <a href="{{ url('/configuracion') }}" class="inline-block mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-600">
                                 Entrar
                             </a>
                         </div>
                     </div>
+                     
                 </div>
             </div>
         </div>

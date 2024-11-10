@@ -15,14 +15,16 @@ class CreateTriagesTable extends Migration
     {
         Schema::create('triages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('hospital_id'); // Campo para la referencia al hospital
             $table->string('codigo')->unique(); // Código del triage
             $table->string('descripcion'); // Descripción del triage
             $table->integer('prioridad'); // Prioridad del triage
+            $table->string('tiempo');
+            $table->unsignedBigInteger('hospital');
+
             $table->timestamps();
 
             // Definir la clave foránea
-            $table->foreign('hospital_id')->references('id')->on('hospitales')->onDelete('cascade');
+            $table->foreign('hospital')->references('id')->on('hospitales')->onDelete('cascade');
         });
     }
 
@@ -34,7 +36,7 @@ class CreateTriagesTable extends Migration
     public function down()
     {
         Schema::table('triages', function (Blueprint $table) {
-            $table->dropForeign(['hospital_id']); // Eliminar la clave foránea
+            
         });
 
         Schema::dropIfExists('triages');

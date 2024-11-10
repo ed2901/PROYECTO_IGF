@@ -4,14 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Triage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class TriageController extends Controller
 {
-    // Mostrar todos los triages
+
+     // Mostrar todos los triages por hospital
     public function index()
     {
-        $triages = Triage::all(); // Obtiene todos los triages
-        return view('triages.indexTriage', compact('triages')); // Retorna la vista con los triages
+        //id del hospital del usuario logueado
+        $hospitalId = Auth::user()->hospital()->first()->id;
+
+        // Obtener solo los de hospital del usuario
+        $triages = Triage::where('hospital', $hospitalId)->get();
+
+        return view('triages.indexTriage', compact('triages'));
     }
 
     // Mostrar el formulario para crear un nuevo triage
@@ -28,6 +36,8 @@ class TriageController extends Controller
             'codigo' => 'required|string|max:255|unique:triages', // Código único
             'descripcion' => 'required|string|max:255', // Descripción requerida
             'prioridad' => 'required|integer', // Prioridad requerida
+            'tiempo' => 'required|string|max:255',
+            'hospital' => 'required|exists:hospitales,id',
         ]);
 
         // Crear el triage con los datos validados
@@ -51,6 +61,7 @@ class TriageController extends Controller
             'codigo' => 'required|string|max:255|unique:triages,codigo,' . $triage->id, // Código único, excluyendo el actual
             'descripcion' => 'required|string|max:255', // Descripción requerida
             'prioridad' => 'required|integer', // Prioridad requerida
+            'tiempo' => 'required|string|max:255',
         ]);
 
         // Actualizar el triage con los datos validados

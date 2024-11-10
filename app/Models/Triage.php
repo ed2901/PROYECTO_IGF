@@ -13,5 +13,7 @@ class Triage extends Model
         'codigo',
         'descripcion',
         'prioridad',
+        'tiempo',
+        'hospital',
     ];
 }
