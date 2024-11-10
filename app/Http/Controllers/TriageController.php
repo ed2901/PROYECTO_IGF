@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Triage;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,9 +34,13 @@ class TriageController extends Controller
     {
         // Validar los datos del formulario
         $request->validate([
-            'codigo' => 'required|string|max:255|unique:triages', // Código único
-            'descripcion' => 'required|string|max:255', // Descripción requerida
-            'prioridad' => 'required|integer', // Prioridad requerida
+            'codigo' => ['required','string', 'max:255',
+            Rule::unique('triages')->where(function ($query) use ($request) {
+                return $query->where('hospital', $request->hospital);
+                }),
+            ],
+            'descripcion' => 'required|string|max:255', 
+            'prioridad' => 'required|integer',
             'tiempo' => 'required|string|max:255',
             'hospital' => 'required|exists:hospitales,id',
         ]);
@@ -58,11 +63,22 @@ class TriageController extends Controller
     {
         // Validar los datos del formulario
         $request->validate([
-            'codigo' => 'required|string|max:255|unique:triages,codigo,' . $triage->id, // Código único, excluyendo el actual
-            'descripcion' => 'required|string|max:255', // Descripción requerida
-            'prioridad' => 'required|integer', // Prioridad requerida
+            
+            'codigo' => 'required|string|max:255', 
+            'descripcion' => 'required|string|max:255', 
+            'prioridad' => 'required|integer', 
             'tiempo' => 'required|string|max:255',
         ]);
+
+        //Si ya existe mostrar error 
+        $existingTriage = Triage::where('codigo', $request->codigo)
+        ->where('hospital', $triage->hospital)
+        ->where('id', '!=', $triage->id)
+        ->first();
+
+        if ($existingTriage) {
+            return redirect()->back()->withErrors(['codigo' => 'El código ya existe en el mismo hospital.'])->withInput();
+        }
 
         // Actualizar el triage con los datos validados
         $triage->update($request->all());

@@ -15,7 +15,7 @@ class CreateTriagesTable extends Migration
     {
         Schema::create('triages', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo')->unique(); // Código del triage
+            $table->string('codigo'); // Código del triage
             $table->string('descripcion'); // Descripción del triage
             $table->integer('prioridad'); // Prioridad del triage
             $table->string('tiempo');
