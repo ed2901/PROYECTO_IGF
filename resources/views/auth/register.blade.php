@@ -144,7 +144,8 @@
         <div class="form-group">
     <label for="hospital">{{ __('Hospital') }}</label>
     <select id="hospital" name="hospital" required>
-        <option value="">Seleccione un hospital</option>
+        <option value="0" selected disabled hidden >Seleccione un hospital</option>
+        
         @foreach($hospitales as $hospital)
             <option value="{{ $hospital->id }}">{{ $hospital->nombre }}</option>
         @endforeach
@@ -154,7 +155,7 @@
         <div class="form-group">
             <label for="password-confirm">{{ __('Tipo de Usuario') }}</label>
             <select id="roles" type="dropdown" name="roles" required >
-                 <option value="admin">Administrador</option>
+                 
                  <option value="medico">Medico</option>
                 <option value="recepcionista">Recepcionista</option>
             </select>
