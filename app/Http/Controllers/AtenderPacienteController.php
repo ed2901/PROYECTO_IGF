@@ -23,4 +23,30 @@ class AtenderPacienteController extends Controller
 
         return view('atenderpaciente.verpacientes', compact('pacientes_reg_inicial'), compact('pacientes_triage'));
     }
+
+    public function atender($id)
+    {
+        // Encuentra el paciente por ID
+        $paciente = PacienteRegistroInicial::findOrFail($id);
+
+        $paciente_triage = PacienteTriage::where('paciente', $id)->first();
+
+        // Retorna la vista de asignacion de triage
+        return view('atenderpaciente.atenderpaciente', compact('paciente'), compact('paciente_triage'));
+    }
+
+    public function store(Request $request, $id)
+    {
+        
+        //modificar paciente
+        $paciente = PacienteRegistroInicial::findOrFail($id);
+        $paciente->estado = 'Atendido';
+        $paciente->save();
+
+        //error_log("ID PACIENTE + $id");
+        //error_log("PACIENTE ESTADO+ $paciente->estado");
+        
+
+        return redirect('/')->with('success', 'Paciente atendido correctamente');
+    }
 }

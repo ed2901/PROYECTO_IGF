@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PacienteRegistroInicialController;
+use App\Http\Controllers\MonitoreoController;
 use App\Http\Controllers\PacienteTriageController;
 use App\Http\Controllers\AtenderPacienteController;
 use App\Http\Controllers\TriageController;
@@ -15,8 +16,20 @@ use App\Http\Controllers\TriageController;
 //                                   Atender Pacientes                                    //
 
 
+//ver estado de pacientes en tiempo real 
+Route::get('/monitoreo/verpacientes', [MonitoreoController::class, 'monitoreo']);
+Route::get('/monitoreo/{id}/info', [MonitoreoController::class, 'info'])->name('paciente.info');
+
+
+
+//                                   Atender Pacientes                                    //
+
+
 // Ver pacientes con triage realizado
 Route::get('/atenderpaciente/verpacientes', [AtenderPacienteController::class, 'verpacientes']);
+//realizar atencion por id
+Route::get('/atenderpaciente/{id}/atender', [AtenderPacienteController::class, 'atender'])->name('paciente.atender');
+Route::put('/atenderpaciente/{id}', [AtenderPacienteController::class, 'store'])->name('paciente.editarestado');
 
 
 

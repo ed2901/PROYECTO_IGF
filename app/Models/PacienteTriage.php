@@ -26,4 +26,9 @@ class PacienteTriage extends Model
     {
         return $this->belongsTo(Triage::class, 'triage');
     }
+
+    public function pacienteRel()
+    {
+        return $this->belongsTo(PacienteRegistroInicial::class, 'paciente');
+    }
 }

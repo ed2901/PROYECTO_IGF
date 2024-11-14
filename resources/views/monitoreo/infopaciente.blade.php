@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<h2 class="text-2xl font-semibold text-center mb-6">Atendiendo paciente: {{ old('nombre', $paciente->nombre) }}</h2>
-<h2 class="text-2xl font-semibold text-center mb-6">Nivel de prioridad:  {{$paciente_triage->triageRel()->first()->codigo }}</h2>
+<h2 class="text-2xl font-semibold text-center mb-6">Informacion de paciente: {{ old('nombre', $paciente->nombre) }}</h2>
+<h2 class="text-2xl font-semibold text-center mb-6">Triage :  {{$paciente_triage->triageRel()->first()->codigo }}</h2>
 
 
 
@@ -158,20 +158,18 @@
     <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl">
 
     <div class="overflow-x-auto shadow-md rounded-lg">
-    <form action="{{ route('paciente.editarestado', $paciente->id) }}" method="POST">
-            @csrf
-            @method('PUT')
+    
     </div>
     
     
     <div class="mb-4">
             
-        </div>
+    
 
             
-            <button type="submit" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Terminar Evaluacion de paciente </button>
-            <br><br>
-            <button href="/atenderpacientes/verpacientes" class="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancelar</button>
+        <a href="/monitoreo/verpacientes" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Editar</a>            
+        <br><br>
+            <a href="/monitoreo/verpacientes" class="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Volver a la lista de pacientes</a>
         
 
     </div>
@@ -180,5 +178,5 @@
 
 
 
-</form>
+
 @endsection

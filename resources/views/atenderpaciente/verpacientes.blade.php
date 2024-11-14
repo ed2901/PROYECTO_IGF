@@ -38,7 +38,7 @@
             </thead>
             <tbody>
                 @foreach ($pacientes_reg_inicial as $pacientes)
-                @foreach ($pacientes_triage as $triage)
+                @foreach ($paciente_triage as $triage)
 
                 @if ($pacientes->estado === 'Asignado')
 
@@ -55,7 +55,7 @@
                         <td class="py-3 px-4">{{ $triage->frec_cardiaca }} bpm</td>
 
                         <td class="py-3 px-4 text-center">
-                            <a href="{{ route('paciente.triage', $pacientes->id) }}" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                            <a href="{{ route('paciente.atender', $pacientes->id) }}" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
                                 Atender
                             </a>
                             
@@ -110,7 +110,7 @@
                         <td class="py-3 px-4">{{ $triage->frec_cardiaca }} bpm</td>
 
                         <td class="py-3 px-4 text-center">
-                            <a href="{{ route('paciente.triage', $pacientes->id) }}" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
+                            <a href="{{ route('paciente.atender', $pacientes->id) }}" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
                                 Atender
                             </a>
                             
@@ -163,7 +163,7 @@
                         <td class="py-3 px-4">{{ $triage->frec_cardiaca }} bpm</td>
 
                         <td class="py-3 px-4 text-center">
-                            <a href="{{ route('paciente.triage', $pacientes->id) }}" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
+                            <a href="{{ route('paciente.atender', $pacientes->id) }}" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
                                 Atender
                             </a>
                             
@@ -215,7 +215,7 @@
                         <td class="py-3 px-4">{{ $triage->frec_cardiaca }} bpm</td>
 
                         <td class="py-3 px-4 text-center">
-                            <a href="{{ route('paciente.triage', $pacientes->id) }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                            <a href="{{ route('paciente.atender', $pacientes->id) }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                                 Atender
                             </a>
                             
@@ -268,7 +268,7 @@
                         <td class="py-3 px-4">{{ $triage->frec_cardiaca }} bpm</td>
 
                         <td class="py-3 px-4 text-center">
-                            <a href="{{ route('paciente.triage', $pacientes->id) }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                            <a href="{{ route('paciente.atender', $pacientes->id) }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
                                 Atender
                             </a>
                             

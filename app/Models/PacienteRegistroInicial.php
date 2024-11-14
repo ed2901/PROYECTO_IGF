@@ -27,4 +27,5 @@ class PacienteRegistroInicial extends Model
     //{
     //    return $this->belongsTo(Hospital::class, 'hospital');
     //}
+    
 }
