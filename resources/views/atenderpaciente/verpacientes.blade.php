@@ -93,7 +93,7 @@
             </thead>
             <tbody>
                 @foreach ($pacientes_reg_inicial as $pacientes)
-                @foreach ($pacientes_triage as $triage)
+                @foreach ($paciente_triage as $triage)
 
                 @if ($pacientes->estado === 'Asignado')
 
@@ -146,7 +146,7 @@
             </thead>
             <tbody>
                 @foreach ($pacientes_reg_inicial as $pacientes)
-                @foreach ($pacientes_triage as $triage)
+                @foreach ($paciente_triage as $triage)
 
                 @if ($pacientes->estado === 'Asignado')
 
@@ -198,7 +198,7 @@
             </thead>
             <tbody>
                 @foreach ($pacientes_reg_inicial as $pacientes)
-                @foreach ($pacientes_triage as $triage)
+                @foreach ($paciente_triage as $triage)
 
                 @if ($pacientes->estado === 'Asignado')
 
@@ -251,7 +251,7 @@
             </thead>
             <tbody>
                 @foreach ($pacientes_reg_inicial as $pacientes)
-                @foreach ($pacientes_triage as $triage)
+                @foreach ($paciente_triage as $triage)
 
                 @if ($pacientes->estado === 'Asignado')
 

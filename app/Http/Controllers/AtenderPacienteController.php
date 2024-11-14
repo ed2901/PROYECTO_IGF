@@ -19,9 +19,9 @@ class AtenderPacienteController extends Controller
         // Obtener todos los pacientes 
         $pacientes_reg_inicial = PacienteRegistroInicial::where('hospital', $hospitalId)->get();
         
-        $pacientes_triage = PacienteTriage::all();
+        $paciente_triage = PacienteTriage::all();
 
-        return view('atenderpaciente.verpacientes', compact('pacientes_reg_inicial'), compact('pacientes_triage'));
+        return view('atenderpaciente.verpacientes', compact('pacientes_reg_inicial'), compact('paciente_triage'));
     }
 
     public function atender($id)
