@@ -18,6 +18,8 @@ class PacienteRegistroInicial extends Model
         'registrante',
         'hospital',
         'estado',
+        'codigo',
+
 
     ];
 

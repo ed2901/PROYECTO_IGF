@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@triage.com',
                 'password' => Hash::make('Qwerty123'),
                 'rol' => 'admin',
-                'hospital' => 0,
+                'hospital' => 999,
             ]);
         }
     }

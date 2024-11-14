@@ -81,14 +81,34 @@
                             </a>
                         </div>
                     </div>
+                    <div class="w-full md:w-1/3 p-2">
+                        <div class="bg-white border-4 border-purple-500 p-4 rounded-lg shadow-md">
+                            <h3 class="font-bold text-gray-800">Gestionar Triage</h3>
+                            <p class="text-gray-600">Consulta los triages registrados en todos los hospitales</p>
+                            <a href="{{ url('/triages') }}" class="inline-block mt-2 px-4 py-2 bg-purple-500 text-white rounded hover:bg-green-600">
+                                Entrar
+                            </a>
+                        </div>
+                    </div>
                     @endif
 
                     @if(Auth::user()->rol === 'recepcionista')
+
                     <div class="w-full md:w-1/3 p-2">
                         <div class="bg-white border-4 border-red-500 p-4 rounded-lg shadow-md">
+                            <h3 class="font-bold text-gray-800">Realizar Triage</h3>
+                            <p class="text-gray-600">Realiza el triage al paciente registrado para que este sea atendido</p>
+                            <a href="{{ url('/triagepaciente/verpacientes') }}" class="inline-block mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-green-600">
+                                Registrar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3 p-2">
+                        <div class="bg-white border-4 border-green-500 p-4 rounded-lg shadow-md">
                             <h3 class="font-bold text-gray-800">Registrar Paciente</h3>
                             <p class="text-gray-600">Registra a los pacientes para realizar el triage</p>
-                            <a href="{{ url('/registrarpaciente/regpaciente') }}" class="inline-block mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-green-600">
+                            <a href="{{ url('/registrarpaciente/regpaciente') }}" class="inline-block mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
                                 Registrar
                             </a>
                         </div>
@@ -103,30 +123,42 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="w-full md:w-1/3 p-2">
+                        <div class="bg-white border-4 border-purple-500 p-4 rounded-lg shadow-md">
+                            <h3 class="font-bold text-gray-800">Gestionar Triage</h3>
+                            <p class="text-gray-600">Consulta y gestiona los triages registrados en el hospital</p>
+                            <a href="{{ url('/triages') }}" class="inline-block mt-2 px-4 py-2 bg-purple-500 text-white rounded hover:bg-green-600">
+                                Entrar
+                            </a>
+                        </div>
+                    </div>
                     @endif
 
                     @if(Auth::user()->rol === 'medico')
                     <div class="w-full md:w-1/3 p-2">
                         <div class="bg-white border-4 border-red-500 p-4 rounded-lg shadow-md">
                             <h3 class="font-bold text-gray-800">Evaluar Pacientes</h3>
-                            <p class="text-gray-600">Evalúa el nivel de urgencia de cada paciente</p>
-                            <a href="{{ url('/reportes-pacientes') }}" class="inline-block mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-blue-600">
+                            <p class="text-gray-600">Evalúa paciente en nivel del su codigo de triage</p>
+                            <a href="{{ url('/atenderpaciente/verpacientes') }}" class="inline-block mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-blue-600">
                                 Evaluar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3 p-2">
+                        <div class="bg-white border-4 border-purple-500 p-4 rounded-lg shadow-md">
+                            <h3 class="font-bold text-gray-800">Gestionar Triage</h3>
+                            <p class="text-gray-600">Consulta y gestiona los triages registrados en el hospital</p>
+                            <a href="{{ url('/triages') }}" class="inline-block mt-2 px-4 py-2 bg-purple-500 text-white rounded hover:bg-green-600">
+                                Entrar
                             </a>
                         </div>
                     </div>
                     @endif
 
                     <!-- Tarjeta para gestionar triages -->
-                    <div class="w-full md:w-1/3 p-2">
-                        <div class="bg-white border-4 border-purple-500 p-4 rounded-lg shadow-md">
-                            <h3 class="font-bold text-gray-800">Gestionar Triage</h3>
-                            <p class="text-gray-600">Consulta y gestiona los triages realizados</p>
-                            <a href="{{ url('/triages') }}" class="inline-block mt-2 px-4 py-2 bg-purple-500 text-white rounded hover:bg-green-600">
-                                Entrar
-                            </a>
-                        </div>
-                    </div>
+                   
 
                     <!-- Opciones comunes para todos los usuarios -->
 
@@ -144,10 +176,10 @@
 
                      
                     <div class="w-full md:w-1/3 p-2">
-                        <div class="bg-white border-4 border-green-500 p-4 rounded-lg shadow-md">
+                        <div class="bg-white border-4 border-gray-500 p-4 rounded-lg shadow-md">
                             <h3 class="font-bold text-gray-800">Monitoreo en Tiempo Real</h3>
                             <p class="text-gray-600">Entra a la interfaz de monitoreo en tiempo real de pacientes</p>
-                            <a href="{{ url('/configuracion') }}" class="inline-block mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-600">
+                            <a href="{{ url('/configuracion') }}" class="inline-block mt-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-blue-600">
                                 Entrar
                             </a>
                         </div>

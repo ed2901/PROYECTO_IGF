@@ -70,7 +70,8 @@ class PacienteRegistroInicialController extends Controller
 
         $data = $request->all();
         //en espera al registralos
-        $data['estado'] = 'En espera';
+        $data['estado'] = 'Registrado';
+        $data['codigo'] = rand(1000,9999);
 
         PacienteRegistroInicial::create($data);
 

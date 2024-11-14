@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Triage;
+use App\Models\Hospital;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,16 @@ class TriageController extends Controller
      // Mostrar todos los triages por hospital
     public function index()
     {
+
+        //Solo para admin general
+        if (Auth::user()->rol === 'admin' and Auth::user()->hospital === 999)
+        {
+            $hospitales = Hospital::all();
+            $triages = Triage::all();
+            return view('triages.indexTriage', compact('triages'), compact('hospitales'));
+
+        }
+        
         //id del hospital del usuario logueado
         $hospitalId = Auth::user()->hospital()->first()->id;
 

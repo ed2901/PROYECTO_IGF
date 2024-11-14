@@ -7,7 +7,34 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PacienteRegistroInicialController;
+use App\Http\Controllers\PacienteTriageController;
+use App\Http\Controllers\AtenderPacienteController;
 use App\Http\Controllers\TriageController;
+
+
+//                                   Atender Pacientes                                    //
+
+
+// Ver pacientes con triage realizado
+Route::get('/atenderpaciente/verpacientes', [AtenderPacienteController::class, 'verpacientes']);
+
+
+
+
+
+
+//                                   Triage en Pacientes                                  //
+
+// Ver pacientes en espera con acceso a tabla
+Route::get('/triagepaciente/verpacientes', [PacienteTriageController::class, 'verpacientes']);
+
+//realizar triage por id
+Route::get('/triagepaciente/{id}/triage', [PacienteTriageController::class, 'triage'])->name('paciente.triage');
+Route::put('/triagepaciente/{id}', [PacienteTriageController::class, 'store'])->name('paciente.hacertriage');
+
+
+//                                   Registrar Pacientes                                  //
+
 
 // Registrar paciente
 Route::get('/registrarpaciente/regpaciente', function () {
@@ -22,6 +49,10 @@ Route::get('/registrarpaciente/verpacientes', [PacienteRegistroInicialController
 Route::get('/registrarpaciente/{id}/edit', [PacienteRegistroInicialController::class, 'edit'])->name('paciente.edit');
 Route::put('/registrarpaciente/{id}', [PacienteRegistroInicialController::class, 'update'])->name('paciente.update');
 
+
+//                                   Hospitales                                       //
+
+
 // Registrar hospital
 Route::get('/registrarhospital', function () {
     return view('registrarhospital');
@@ -34,6 +65,10 @@ Route::get('/verhospitales', [HospitalController::class, 'verhospitales']);
 // Editar hospitales
 Route::get('/hospital/{id}/edit', [HospitalController::class, 'edit'])->name('hospital.edit');
 Route::put('/hospital/{id}', [HospitalController::class, 'update'])->name('hospital.update');
+
+
+//                                   Registrar Triages                                  //
+
 
 // Rutas para triages
 Route::middleware(['auth'])->group(function () {
@@ -52,6 +87,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/triages/{triage}', [TriageController::class, 'destroy'])->name('triages.destroy');
 });
 
+
+//                                   Paginas de Inicio y Usuarios                         //
+
+
 // Ruta para la página de inicio (welcome)
 Route::get('/', function () {
     return view('inicio'); // Cambia esto si tu vista de inicio es diferente
@@ -66,4 +105,4 @@ Route::get('/home', function () {
 })->middleware('auth');
 
 // Ruta para el registro de usuarios
-Route::get('/register', [RegisterController::class, 'create'])->name('register.create');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.create');

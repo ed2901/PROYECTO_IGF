@@ -155,7 +155,7 @@
         <div class="form-group">
             <label for="password-confirm">{{ __('Tipo de Usuario') }}</label>
             <select id="roles" type="dropdown" name="roles" required >
-                 <option value="admin">Administrador</option>
+                 
                  <option value="medico">Medico</option>
                 <option value="recepcionista">Recepcionista</option>
             </select>

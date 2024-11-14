@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('registrante');
             $table->unsignedBigInteger('hospital');
             $table->text('estado');
+            $table->integer('codigo');
             $table->timestamps();
 
             // Relación con el usuario (asumiendo que 'registrante' es un ID de usuario)

@@ -1,14 +1,12 @@
 @extends('layouts.app')
 
 @section('nav-home')
-<a href="/registrarhospital" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Pacientes en espera</a>
+<a href="/registrarhospital" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Realizar Triage</a>
 @endsection
 @section('content')
 
-<h2 class="text-2xl font-semibold text-center mb-6">Todos los pacientes registrados</h2>
+<h2 class="text-2xl font-semibold text-center mb-6">Elige un paciente para realizar triage</h2>
 
-
-<h1 class="text-3xl font-bold mb-6 text-center text-gray-800">en: {{ Auth::user()->hospital()->first()->nombre }} </h1>
    
     <body class="bg-gray-100 p-0">
 
@@ -29,6 +27,8 @@
             </thead>
             <tbody>
                 @foreach ($pacientes_reg_inicial as $pacientes)
+
+                @if ($pacientes->estado === 'Registrado')
                     <tr class="border-b hover:bg-gray-100">
                         <td class="py-3 px-4">{{ $pacientes->codigo }}</td>
                         <td class="py-3 px-4">{{ $pacientes->nombre }}</td>
@@ -38,14 +38,15 @@
                         <td class="py-3 px-4">{{ $pacientes->estado }}</td>
 
                         <td class="py-3 px-4 text-center">
-                            <a href="{{ route('paciente.edit', $pacientes->id) }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                                Editar
+                            <a href="{{ route('paciente.triage', $pacientes->id) }}" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                                Realizar triage
                             </a>
-                            <a href="" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
-                                Eliminar
-                            </a>
+                            
                         </td>
                     </tr>
+
+                @endif
+                
                 @endforeach
             </tbody>
         </table>
